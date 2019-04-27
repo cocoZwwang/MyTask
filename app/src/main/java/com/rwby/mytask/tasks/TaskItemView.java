@@ -5,10 +5,8 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.rwby.mytask.R;
-import com.rwby.mytask.bean.Task;
-
+import com.rwby.mytask.db.domain.Task;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -41,7 +39,6 @@ public class TaskItemView extends RelativeLayout {
     public void showTask(Task task) {
         if (task == null)
             return;
-        tvContent.setText(task.title);
-        iv.setVisibility(task.completed ? VISIBLE : INVISIBLE);
+        tvContent.setText(task.getTitle());
     }
 }

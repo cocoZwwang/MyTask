@@ -2,7 +2,7 @@ package com.rwby.mytask.tasks;
 
 import com.rwby.mytask.BasePresenter;
 import com.rwby.mytask.BaseView;
-import com.rwby.mytask.bean.Task;
+import com.rwby.mytask.db.domain.Task;
 
 import java.util.List;
 

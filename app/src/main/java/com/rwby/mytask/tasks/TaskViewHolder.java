@@ -3,7 +3,7 @@ package com.rwby.mytask.tasks;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.rwby.mytask.bean.Task;
+import com.rwby.mytask.db.domain.Task;
 
 public class TaskViewHolder extends RecyclerView.ViewHolder {
 

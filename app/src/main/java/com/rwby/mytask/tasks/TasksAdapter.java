@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.rwby.mytask.R;
-import com.rwby.mytask.bean.Task;
+import com.rwby.mytask.db.domain.Task;
 
 import java.util.List;
 
@@ -40,7 +40,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TaskViewHolder> {
 
     @Override
     public void onBindViewHolder(TaskViewHolder holder, int position) {
-        Log.i("test", "position task:" + tasks.get(position).title);
+        Log.i("test", "position task:" + tasks.get(position).getTitle());
         holder.showTask(tasks.get(position));
     }
 

@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.rwby.mytask.R;
-import com.rwby.mytask.bean.Task;
+import com.rwby.mytask.db.domain.Task;
 
 import java.util.List;
 

@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -35,6 +36,10 @@ android {
     }
 }
 
+    greendao {
+        schemaVersion 1
+    }
+
 dependencies {
     //App's dependencies
     implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
@@ -44,6 +49,7 @@ dependencies {
     implementation "io.reactivex:rxjava:$rootProject.rxjavaVersion"
     implementation "io.reactivex:rxandroid:$rootProject.rxandroidVersion"
     implementation "com.squareup.sqlbrite:sqlbrite:$rootProject.sqlbriteVersion"
+    implementation "org.greenrobot:greendao:$rootProject.greendaoVersion"
 
     // Dagger dependencies
     annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
@@ -56,19 +62,19 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttp3Version"
 
     // Dependencies for local unit tests
-//    implementation "junit:junit:$rootProject.ext.junitVersion"
-//    implementation "org.mockito:mockito-all:$rootProject.ext.mockitoVersion"
-//    implementation "org.hamcrest:hamcrest-all:$rootProject.ext.hamcrestVersion"
+    testImplementation "junit:junit:$rootProject.ext.junitVersion"
+    testImplementation "org.mockito:mockito-all:$rootProject.ext.mockitoVersion"
+    testImplementation "org.hamcrest:hamcrest-all:$rootProject.ext.hamcrestVersion"
 
     // Android Testing Support Library's runner and rules
     androidTestImplementation "com.android.support.test:runner:$rootProject.ext.runnerVersion"
     androidTestImplementation "com.android.support.test:rules:$rootProject.ext.runnerVersion"
 
-    // Dependencies for Android unit tests
-//    androidTestImplementation "junit:junit:$rootProject.ext.junitVersion"
-//    androidTestImplementation "org.mockito:mockito-core:$rootProject.ext.mockitoVersion"
-//    androidTestImplementation "com.google.dexmaker:dexmaker:$rootProject.ext.dexmakerVersion"
-//    androidTestImplementation "com.google.dexmaker:dexmaker-mockito:$rootProject.ext.dexmakerVersion"
+//     Dependencies for Android unit tests
+    androidTestImplementation "junit:junit:$rootProject.ext.junitVersion"
+    androidTestImplementation "org.mockito:mockito-core:$rootProject.ext.mockitoVersion"
+    androidTestImplementation "com.google.dexmaker:dexmaker:$rootProject.ext.dexmakerVersion"
+    androidTestImplementation "com.google.dexmaker:dexmaker-mockito:$rootProject.ext.dexmakerVersion"
 //
 //    // Espresso UI Testing
 //    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
@@ -84,4 +90,6 @@ dependencies {
 
     implementation "com.jakewharton:butterknife:$rootProject.butterknife_version"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknife_version"
+
+    implementation 'com.facebook.stetho:stetho:1.5.0'
 }

@@ -1,7 +1,7 @@
 package com.rwby.mytask.tasks;
 
 import com.rwby.mytask.annotation.FragmentScoped;
-import com.rwby.mytask.bean.Task;
+import com.rwby.mytask.db.domain.Task;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ public class TasksPresenter implements TasksContract.Presenter {
     private List<Task> tasks;
 
     @Inject
-    public TasksPresenter(TasksContract.View view) {
+    TasksPresenter(TasksContract.View view) {
         mView = view;
         mView.setPresenter(this);
     }
@@ -30,8 +30,18 @@ public class TasksPresenter implements TasksContract.Presenter {
     private void loadTasks() {
         tasks = new ArrayList<>();
 
-        tasks.add(new Task("linux课程学习","",false));
-        tasks.add(new Task("减肥运动","",false));
-        tasks.add(new Task("搞卫生","",true));
+        tasks.add(getTask("linux课程学习"));
+        tasks.add(getTask("减肥运动"));
+        tasks.add(getTask("搞卫生"));
+    }
+
+    private Task getTask(String title) {
+        Task task = new Task();
+        task.setTitle(title);
+        task.setContent("");
+        task.setStatus(0);
+        task.setType(0);
+        task.setCompletedDate(null);
+        return task;
     }
 }

@@ -1,21 +1,27 @@
 package com.rwby.mytask.repository;
 
-import com.rwby.mytask.bean.Task;
+import com.rwby.mytask.db.domain.Task;
+import com.rwby.mytask.enum_type.TaskStatus;
+import com.rwby.mytask.enum_type.TaskType;
 
 import java.util.List;
 
 import rx.Observable;
 
 public interface TaskDataSource {
-    void save(Task task);
+    Observable<Task> save(Task task);
 
-    void save(List<Task> tasks);
+    Observable<List<Task>> save(List<Task> tasks);
 
-    int delete(int taskId);
+    Observable<Void> delete(Long taskId);
 
-    int delete(int[] taskIds);
+    Observable<Void> delete(List<Long> taskIds);
 
-    Observable<Task> getTask(int taskId);
+    Observable<Void> deleteAll();
 
-    Observable<List<Task>> getAllTasks();
+    Observable<Task> getTask(Long taskId);
+
+    Observable<List<Task>> getTasksSortByCreateTime(int page, int pageSize);
+
+    Observable<List<Task>> getTasksSortByCreateTime(TaskStatus status, TaskType type, int page, int pageSize);
 }

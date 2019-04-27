@@ -3,9 +3,13 @@ package com.rwby.mytask;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.rwby.mytask.db.DatabaseHelper;
+import com.rwby.mytask.db.domain.DaoMaster;
+import com.rwby.mytask.db.domain.DaoSession;
 import com.rwby.mytask.util.SharedPref;
 import com.squareup.sqlbrite.BriteDatabase;
 import com.squareup.sqlbrite.SqlBrite;
+
+import org.greenrobot.greendao.database.Database;
 
 import javax.inject.Singleton;
 
@@ -35,5 +39,13 @@ public class DataUtilModule {
         DatabaseHelper dbHelper = new DatabaseHelper(app, "my_task.db");
         SqlBrite sqlBrite = SqlBrite.create();
         return sqlBrite.wrapDatabaseHelper(dbHelper, Schedulers.io());
+    }
+
+    @Provides
+    @Singleton
+    public DaoSession provideDaoSession(MyApp app) {
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(app, "task_db");
+        Database db = helper.getWritableDb();
+        return new DaoMaster(db).newSession();
     }
 }
