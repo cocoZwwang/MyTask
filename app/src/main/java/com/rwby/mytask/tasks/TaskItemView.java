@@ -5,8 +5,11 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.rwby.mytask.R;
 import com.rwby.mytask.db.domain.Task;
+import com.rwby.mytask.enum_type.TaskStatus;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -40,5 +43,7 @@ public class TaskItemView extends RelativeLayout {
         if (task == null)
             return;
         tvContent.setText(task.getTitle());
+        boolean completed = task.getStatus() == TaskStatus.TASK_STATUS_COMPLETED.code;
+        iv.setVisibility(completed ? VISIBLE : INVISIBLE);
     }
 }

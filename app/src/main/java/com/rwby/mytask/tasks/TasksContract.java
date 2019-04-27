@@ -18,5 +18,7 @@ public interface TasksContract {
 
     interface View extends BaseView<Presenter> {
         void showTasks(List<Task> tasks);
+
+        void loadTaskError(String msg);
     }
 }

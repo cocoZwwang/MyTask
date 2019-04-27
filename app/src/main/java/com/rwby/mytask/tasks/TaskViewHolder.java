@@ -13,7 +13,7 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
 
     private OnItemViewClickListener listener;
 
-    public TaskViewHolder(View itemView) {
+    TaskViewHolder(View itemView) {
         super(itemView);
         this.itemView = (TaskItemView) itemView;
         itemView.setOnClickListener(v -> {
@@ -22,7 +22,7 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
         });
     }
 
-    public void showTask(Task task) {
+    void showTask(Task task) {
         this.task = task;
         itemView.showTask(task);
     }

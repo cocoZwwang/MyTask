@@ -49,8 +49,19 @@ public class FragmentTasks extends Fragment implements TasksContract.View {
     }
 
     @Override
+    public void onDetach() {
+        presenter.unSubscribe();
+        super.onDetach();
+    }
+
+    @Override
     public void setPresenter(TasksContract.Presenter presenter) {
         this.presenter = presenter;
+    }
+
+    @Override
+    public void showLoadingProgress(boolean show) {
+
     }
 
     @Override
@@ -63,5 +74,10 @@ public class FragmentTasks extends Fragment implements TasksContract.View {
 
         tasksAdapter.changeData(tasks);
         tasksAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void loadTaskError(String msg) {
+
     }
 }

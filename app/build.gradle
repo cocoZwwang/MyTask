@@ -48,7 +48,7 @@ dependencies {
 
     implementation "io.reactivex:rxjava:$rootProject.rxjavaVersion"
     implementation "io.reactivex:rxandroid:$rootProject.rxandroidVersion"
-    implementation "com.squareup.sqlbrite:sqlbrite:$rootProject.sqlbriteVersion"
+//    implementation "com.squareup.sqlbrite:sqlbrite:$rootProject.sqlbriteVersion"
     implementation "org.greenrobot:greendao:$rootProject.greendaoVersion"
 
     // Dagger dependencies
